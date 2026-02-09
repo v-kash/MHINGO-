@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,7 +22,7 @@ const hoverZoom = {
   transition: { duration: 0.6, ease: "easeOut" },
 };
 
-function Block({ image, overlay, title, text, cta, index }) {
+function Block({ image, overlay, title, text, cta, href, index }) {
   return (
     <motion.div
       className="relative overflow-hidden group h-full"
@@ -50,9 +51,12 @@ function Block({ image, overlay, title, text, cta, index }) {
 
         <p className="mt-4 text-white/90 leading-relaxed">{text}</p>
 
-        <button className="mt-8 w-fit border border-white/70 rounded-full px-6 py-2 text-sm tracking-wide hover:bg-white hover:text-black transition">
+        <Link
+          href={href}
+          className="mt-8 w-fit inline-block border border-white/70 rounded-full px-6 py-2 text-sm tracking-wide hover:bg-white hover:text-black transition"
+        >
           {cta}
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
@@ -61,10 +65,9 @@ function Block({ image, overlay, title, text, cta, index }) {
 export default function About() {
   return (
     <section
-  id="about"
-  className="bg-white pt-8 sm:pt-20 md:pt-24 lg:pt-32 pb-8"
->
-
+      id="about"
+      className="bg-white pt-8 sm:pt-20 md:pt-24 lg:pt-32 pb-8"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* WHO WE ARE Section */}
         <div className="mb-16 text-center max-w-4xl mx-auto relative">
@@ -152,6 +155,7 @@ access to education, healthcare, and essential social support for underserved
 communities.
 "
                 cta="EXPLORE OUR PROGRAMS"
+                href="/programs"
               />
             </div>
 
@@ -206,6 +210,7 @@ communities.
                 text="We support children and young people through educational initiatives that
 encourage learning, skill development, and long-term self-reliance."
                 cta="LEARN MORE"
+                href="#MV"
               />
             </div>
 
@@ -222,6 +227,7 @@ timely support, recovery assistance, and pathways toward stability and
 resilience.
 "
                 cta="LEARN MORE"
+                href="#gallery"
               />
             </div>
           </div>

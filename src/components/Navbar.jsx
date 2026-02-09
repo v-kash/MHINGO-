@@ -100,7 +100,7 @@ export default function Navbar() {
                 scrolled ? "text-black" : "text-white"
               }`}
             >
-              Docs
+              Governance{" "}
             </Link>
 
             <Link
@@ -114,28 +114,32 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-<button
-  className={`md:hidden p-2 transition-colors ${
-    scrolled ? "text-black" : "text-white"
-  }`}
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
->
-  <svg
-    className={`w-6 h-6 transition-transform duration-300 ${
-      mobileMenuOpen ? "rotate-90" : "rotate-0"
-    }`}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-    />
-  </svg>
-</button>
+          <button
+            className={`md:hidden p-2 transition-colors ${
+              scrolled ? "text-black" : "text-white"
+            }`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg
+              className={`w-6 h-6 transition-transform duration-300 ${
+                mobileMenuOpen ? "rotate-90" : "rotate-0"
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={
+                  mobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
 
           {/* Right Side */}
           {/* <div className="flex items-center gap-4">
@@ -192,54 +196,54 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu */}
       {/* Mobile Menu */}
-<div
-  className={`
+      <div
+        className={`
     md:hidden overflow-hidden
     transition-all duration-300 ease-out
     ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
   `}
->
-  <div className="bg-white/95 backdrop-blur-xl border-t border-black/10">
-    <div className="px-8 py-6 flex flex-col gap-1">
-      <Link
-        href="/"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
       >
-        Home
-      </Link>
-      <Link
-        href="/#about"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
-      >
-        About
-      </Link>
-      <Link
-        href="/programs"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
-      >
-        Programs
-      </Link>
-      <Link
-        href="/#gallery"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
-      >
-        Gallery
-      </Link>
-      <Link
-        href="/#legal"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
-      >
-        Docs
-      </Link>
-      <Link
-        href="/#contact"
-        className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
-      >
-        Contact
-      </Link>
-    </div>
-  </div>
-</div>
+        <div className="bg-white/95 backdrop-blur-xl border-t border-black/10">
+          <div className="px-8 py-6 flex flex-col gap-1">
+            <Link
+              href="/"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              Home
+            </Link>
+            <Link
+              href="/#about"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              About
+            </Link>
+            <Link
+              href="/programs"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              Programs
+            </Link>
+            <Link
+              href="/#gallery"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              Gallery
+            </Link>
+            <Link
+              href="/#legal"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              Docs
+            </Link>
+            <Link
+              href="/#contact"
+              className="text-black font-medium py-3 px-4 rounded-lg hover:bg-black/5 transition-all duration-200 transform hover:translate-x-1"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </div>
 
       {/* 🔥 ANIMATED UNDERLINE */}
       <div

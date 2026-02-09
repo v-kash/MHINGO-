@@ -74,7 +74,7 @@ export default function MissionVisionCard() {
   const handleNext = () => setActive((p) => (p === 0 ? 1 : 0));
 
   return (
-    <section ref={ref} className="relative py-14 overflow-hidden">
+    <section id="MV" ref={ref} className="relative py-14 overflow-hidden">
       {/* background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: bgY }}>
