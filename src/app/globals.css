@@ -1,26 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@400;500;600;700&display=swap");
+
+/* Tailwind v4 */
 @import "tailwindcss";
 
+/* =========================
+   GLOBAL DESIGN TOKENS
+   ========================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* COLORS (RGB for opacity control) */
+  --primary-light: 159 231 245;   /* #9FE7F5 */
+  --primary: 66 158 189;          /* #429EBD */
+  --primary-dark: 5 63 92;        /* #053F5C */
+  --yellow: 247 173 25;           /* #F7AD19 */
+  --orange: 242 127 12;           /* #F27F0C */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* GLOBAL BASE */
+body {
+  font-family: "Patrick Hand", cursive;
+  color: rgb(var(--primary-dark));
+  background: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom utility classes */
+@layer utilities {
+  .font-heading {
+    font-family: "Inter", sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Add to globals.css */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+section {
+  scroll-margin-top: 96px; /* height of navbar */
+}
+footer {
+  scroll-margin-top: 96px;
 }
