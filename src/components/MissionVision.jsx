@@ -212,7 +212,7 @@ export default function MissionVisionCard() {
                   {content[active].tag}
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-[#0f4c5c] to-[#6aa84f] bg-clip-text text-transparent">
+                <h3 className="text-2xl pb-2 md:text-3xl font-semibold bg-gradient-to-r from-[#0f4c5c] to-[#6aa84f] bg-clip-text text-transparent">
                   {content[active].title}
                 </h3>
 

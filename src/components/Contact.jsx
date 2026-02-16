@@ -9,7 +9,9 @@ import {
   BadgeCheck,
   Landmark,
   Download,
+  X, // 👈 ADD THIS
 } from "lucide-react";
+import { useState } from "react";
 
 export default function LegalCompliance() {
   const documents = [
@@ -17,39 +19,109 @@ export default function LegalCompliance() {
       id: 1,
       title: "Trust Registration Certificate",
       icon: FileText,
-      file: "/docs/trust-cert.pdf",
+      files: [
+        {
+          name: "TRUST-REG-CERTIFICATE.pdf",
+          path: "/docs/trust/TRUST-REG-CERTIFICATE.pdf",
+        },
+        {
+          name: "TRUST-MOA.pdf",
+          path: "/docs/trust/TRUST-MOA.pdf",
+        },
+        {
+          name: "TRUST-MSME-REG.pdf",
+          path: "/docs/trust/TRUST-MSME-REG.pdf",
+        },
+        {
+          name: "TRUST-UDHYAM-CERTIFICATE.pdf",
+          path: "/docs/trust/TRUST-UDHYAM-CERTIFICATE.pdf",
+        },
+      ],
     },
+
     {
       id: 2,
       title: "PAN Card",
       icon: CreditCard,
-      file: "/docs/pan-card.pdf",
+      files: [
+        {
+          name: "TRUST-PANCARD.pdf",
+          path: "/docs/pan/TRUST-PANCARD.pdf",
+        },
+      ],
     },
     {
       id: 3,
       title: "Audit Reports",
       icon: BarChart3,
-      file: "/docs/audit-report.pdf",
+      files: [
+        {
+          name: "AUDIT-REPORT-2021-22.pdf",
+          path: "/docs/audit/AUDIT-REPORT-2021-22.pdf",
+        },
+        {
+          name: "AUDIT-REPORT-2022-23.pdf",
+          path: "/docs/audit/AUDIT-REPORT-2022-23.pdf",
+        },
+        {
+          name: "AUDIT-REPORT-2023-24.pdf",
+          path: "/docs/audit/AUDIT-REPORT-2023-24.pdf",
+        },
+        {
+          name: "AUDIT-REPORT-2024-25.pdf",
+          path: "/docs/audit/AUDIT-REPORT-2024-25.pdf",
+        },
+      ],
     },
     {
       id: 4,
       title: "Income Tax Returns (ITR)",
       icon: Receipt,
-      file: "/docs/itr.pdf",
+      files: [
+        {
+          name: "ITR-7-AY-2023-24.pdf",
+          path: "/docs/itr/ITR-7-AY-2023-24.pdf",
+        },
+        {
+          name: "ITR-7-AY-2024-25.pdf",
+          path: "/docs/itr/ITR-7-AY-2024-25.pdf",
+        },
+        {
+          name: "ITR-7-AY-2025-26.pdf",
+          path: "/docs/itr/ITR-7-AY-2025-26.pdf",
+        },
+      ],
     },
     {
       id: 5,
       title: "CSR-1 Certificate",
       icon: BadgeCheck,
-      file: "/docs/csr1.pdf",
+      files: [
+        {
+          name: "TRUST-CSR1.pdf",
+          path: "/docs/csr1/TRUST-CSR1.pdf",
+        },
+      ],
     },
     {
       id: 6,
       title: "12A & 80G Certificates",
       icon: Landmark,
-      file: "/docs/12a-80g.pdf",
+      files: [
+        {
+          name: "TRUST-12A.pdf",
+          path: "/docs/12a-80g/TRUST-12A.pdf",
+        },
+        {
+          name: "TRUST-80G.pdf",
+          path: "/docs/12a-80g/TRUST-80G.pdf",
+        },
+      ],
     },
   ];
+
+  const [open, setOpen] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   return (
     <section id="legal" className="relative py-12 bg-[#ebe6da] overflow-hidden">
@@ -118,11 +190,12 @@ export default function LegalCompliance() {
             const Icon = doc.icon;
 
             return (
-              <motion.a
+              <motion.button
                 key={doc.id}
-                href={doc.file}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => {
+                  setSelectedDoc(doc);
+                  setOpen(true);
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -148,10 +221,56 @@ export default function LegalCompliance() {
                 </div>
 
                 <Download className="w-5 h-5 text-gray-400 group-hover:text-[#8a5a44] transition-colors" />
-              </motion.a>
+              </motion.button>
             );
           })}
         </div>
+
+        {open && selectedDoc && (
+          <div
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50"
+            onClick={() => setOpen(false)} // 👈 close on outside click
+          >
+            <div
+              className="relative bg-white rounded-2xl p-6 w-[90%] max-w-md shadow-xl"
+              onClick={(e) => e.stopPropagation()} // 👈 prevent closing when clicking inside
+            >
+              {/* ❌ Close Icon */}
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-[#8a5a44] transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <h3 className="text-xl font-semibold mb-6">
+                {selectedDoc.title}
+              </h3>
+
+              <div className="space-y-3">
+                {selectedDoc.files.map((file, index) => (
+                  <a
+                    key={index}
+                    href={file.path}
+                    download
+                    className="
+    group flex items-center justify-between
+    bg-gray-50 px-4 py-3 rounded-lg
+    hover:bg-[#f3e3dc]
+    transition-all duration-200
+  "
+                  >
+                    <span className="text-sm text-gray-800 group-hover:text-[#8a5a44] transition-colors">
+                      {file.name}
+                    </span>
+
+                    <Download className="w-4 h-4 text-gray-500 group-hover:text-[#8a5a44] transition-colors" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

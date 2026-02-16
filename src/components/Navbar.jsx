@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,15 +24,15 @@ export default function Navbar() {
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500 ease-out
         ${
-          scrolled ? "bg-white/60 backdrop-blur-xl shadow-sm" : "bg-transparent"
+          scrolled ? "bg-gray-400/60 backdrop-blur-xl shadow-sm" : "bg-transparent"
         }
       `}
     >
       {/* NAVBAR CONTENT */}
-      <div className="px-8 md:px-16 py-3">
+      <div className="px-8 md:px-16 ">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <div
               className={`
                 w-10 h-10 rounded-full flex items-center justify-center
@@ -53,7 +55,27 @@ export default function Navbar() {
             >
               MAHI
             </span>
-          </div>
+          </div> */}
+          <Link href="/" className="flex items-center ">
+  <Image
+    src="/logo.png"
+    alt="MAHI Logo"
+    width={140}
+    height={50}
+    priority
+    className="object-contain h-16 w-auto"
+  />
+
+  <div className="leading-tight">
+    <p
+      className={`text-sm md:text-lg font-medium transition-colors ${
+        scrolled ? "text-black" : "text-white"
+      }`}
+    >
+      Education & Charitable Trust
+    </p>
+  </div>
+</Link>
 
           {/* Menu */}
           {/* Menu */}
