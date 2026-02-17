@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
+import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -20,12 +22,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 pb-10 border-b border-white/20">
           {/* About */}
           <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 border border-white/20">
-                <span className="font-bold text-lg">M</span>
-              </div>
-              <span className="font-black text-2xl tracking-tight">MAHI</span>
-            </div>
+            <div className="flex items-center justify-center md:justify-start mb-4">
+  <Image
+    src="/logo10.png"
+    alt="MAHI Logo"
+    width={140}
+    height={50}
+    className="object-contain h-12 w-auto"
+  />
+
+  <div className="ml-2 text-left">
+    <p className="text-sm sm:text-base font-medium whitespace-nowrap text-white">
+      Education & Charitable Trust
+    </p>
+  </div>
+</div>
 
             <p className="text-white/80 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
               Committed to empowering communities through education, skill
