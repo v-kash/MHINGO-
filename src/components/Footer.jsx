@@ -74,16 +74,16 @@ export default function Footer() {
               <div>
                 <p className="text-white/60 mb-2 text-xs sm:text-sm">Phone:</p>
                 <a
-                  href="tel:9977313167"
+                  href="tel:9979131367"
                   className="block text-white/90 hover:text-[#f4a261] transition-colors"
                 >
-                  9977313167 – Mr. Aniruddh V. Dodiya
+                  9979131367 – Mr. Anilkumar V. Dodiya
                 </a>
                 <a
-                  href="tel:9512809535"
+                  href="tel:9512009535"
                   className="block text-white/90 hover:text-[#f4a261] transition-colors"
                 >
-                  9512809535 – Office
+                  9512009535 – Office
                 </a>
               </div>
 
@@ -98,13 +98,13 @@ export default function Footer() {
                   href="mailto:mahieducationcharitabletrust2020@gmail.com"
                   className="block text-white/90 hover:text-[#f4a261] transition-colors break-all"
                 >
-                  mahieducationcharitabletrust2020@gmail.com
+                  mahieduandcharitabletrust2020@gmail.com
                 </a>
                 <a
                   href="mailto:mahiedu4trust2020@gmail.com"
                   className="block text-white/90 hover:text-[#f4a261] transition-colors break-all"
                 >
-                  mahiedu4trust2020@gmail.com
+                  mahiedutrust2020@gmail.com
                 </a>
                 <a
                   href="mailto:dodiya223653@gmail.com"

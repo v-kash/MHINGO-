@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,6 +12,8 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
+    onScroll(); // 👈 ADD THIS LINE
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -24,13 +25,13 @@ export default function Navbar() {
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500 ease-out
         ${
-          scrolled ? "bg-gray-400/60 backdrop-blur-xl shadow-sm" : "bg-transparent"
+          scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm" : "bg-transparent"
         }
       `}
     >
       {/* NAVBAR CONTENT */}
       <div className="px-8 md:px-16 ">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center ">
           {/* Logo */}
           {/* <div className="flex items-center gap-2">
             <div
@@ -56,112 +57,187 @@ export default function Navbar() {
               MAHI
             </span>
           </div> */}
-          <Link href="/" className="flex items-center ">
-  <Image
-    src="/logo.png"
-    alt="MAHI Logo"
-    width={140}
-    height={50}
-    priority
-    className="object-contain h-16 w-auto"
-  />
-
-  <div className="leading-tight">
-    <p
-      className={`text-sm md:text-lg font-medium transition-colors ${
-        scrolled ? "text-black" : "text-white"
-      }`}
-    >
-      Education & Charitable Trust
-    </p>
-  </div>
-</Link>
+          <div className="flex-1">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo9.png"
+                alt="MAHI Logo"
+                width={140}
+                height={50}
+                priority
+                className="object-contain h-14 sm:h-16 w-auto"
+              />
+              <div className="ml-2">
+                <p
+                  className={`
+      text-sm sm:text-base md:text-lg
+      font-medium
+      whitespace-nowrap
+      transition-colors
+      ${scrolled ? "text-[#412B6B]" : "text-white"}
+    `}
+                >
+                  Education & Charitable Trust
+                </p>
+              </div>
+            </Link>
+          </div>
 
           {/* Menu */}
           {/* Menu */}
           <div className="hidden md:flex flex-1 justify-center gap-8">
-            <Link
+            {/* <Link
               href="/"
               className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
+                scrolled ? "text-[#6B5FB5]" : "text-white"
               }`}
             >
               Home
+            </Link> */}
+            <Link
+              href="/"
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
+            >
+              Home
+              <Underline />
             </Link>
 
             <Link
               href="/#about"
-              className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
-              }`}
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
             >
               About
+              <Underline />
             </Link>
 
             <Link
               href="/programs"
-              className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
-              }`}
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
             >
               Programs
+              <Underline />
             </Link>
 
             <Link
               href="/#gallery"
-              className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
-              }`}
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
             >
               Gallery
+              <Underline />
             </Link>
 
             <Link
               href="/#legal"
-              className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
-              }`}
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
             >
-              Governance{" "}
+              Governance
+              <Underline />
             </Link>
 
             <Link
               href="/#contact"
-              className={`relative font-medium text-lg ${
-                scrolled ? "text-black" : "text-white"
-              }`}
+              className={`
+    relative 
+    font-medium 
+    text-lg 
+    group 
+    transform 
+    transition-all 
+    duration-300 
+    ease-out
+    hover:-translate-y-0.5
+    ${scrolled ? "text-[#412B6B]" : "text-white"}
+  `}
             >
               Contact
+              <Underline />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden p-2 transition-colors ${
-              scrolled ? "text-black" : "text-white"
-            }`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <svg
-              className={`w-6 h-6 transition-transform duration-300 ${
-                mobileMenuOpen ? "rotate-90" : "rotate-0"
+          <div className="flex-1 flex justify-end">
+            <button
+              className={`md:hidden p-2 transition-colors ${
+                scrolled ? "text-[#6B5FB5]" : "text-white"
               }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={
-                  mobileMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
-              />
-            </svg>
-          </button>
+              <svg
+                className={`w-6 h-6 transition-transform duration-300 ${
+                  mobileMenuOpen ? "rotate-90" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={
+                    mobileMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                />
+              </svg>
+            </button>
+          </div>
 
           {/* Right Side */}
           {/* <div className="flex items-center gap-4">
@@ -277,5 +353,22 @@ export default function Navbar() {
         `}
       />
     </nav>
+  );
+}
+function Underline() {
+  return (
+    <span className="absolute left-0 -bottom-2 w-full h-3 pointer-events-none">
+      <svg viewBox="0 0 120 12" className="w-full h-full">
+        <path
+          d="M0 6 Q10 0 20 6 T40 6 T60 6 T80 6 T100 6 T120 6"
+          stroke="currentColor"
+          fill="none"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          className="wave-line"
+        />
+      </svg>
+    </span>
   );
 }

@@ -8,11 +8,11 @@
    ========================= */
 :root {
   /* COLORS (RGB for opacity control) */
-  --primary-light: 159 231 245;   /* #9FE7F5 */
-  --primary: 66 158 189;          /* #429EBD */
-  --primary-dark: 5 63 92;        /* #053F5C */
-  --yellow: 247 173 25;           /* #F7AD19 */
-  --orange: 242 127 12;           /* #F27F0C */
+  --primary-light: 159 231 245; /* #9FE7F5 */
+  --primary: 66 158 189; /* #429EBD */
+  --primary-dark: 5 63 92; /* #053F5C */
+  --yellow: 247 173 25; /* #F7AD19 */
+  --orange: 242 127 12; /* #F27F0C */
 }
 
 /* GLOBAL BASE */
@@ -31,18 +31,33 @@ body {
 
 /* Add to globals.css */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .animate-float {
@@ -59,7 +74,9 @@ body {
 
 /* Smooth transitions */
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 html {
@@ -70,4 +87,23 @@ section {
 }
 footer {
   scroll-margin-top: 96px;
+}
+
+.wave-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.group:not(:hover) .wave-line {
+  transition: stroke-dashoffset 0.2s ease-in;
+}
+.group:hover .wave-line {
+  stroke-dashoffset: 0;
+}
+
+@keyframes drawWave {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
