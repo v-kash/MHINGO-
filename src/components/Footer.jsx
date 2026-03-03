@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
-
 export default function Footer() {
   return (
     <footer
@@ -23,20 +22,20 @@ export default function Footer() {
           {/* About */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start mb-4">
-  <Image
-    src="/logo10.png"
-    alt="MAHI Logo"
-    width={140}
-    height={50}
-    className="object-contain h-12 w-auto"
-  />
+              <Image
+                src="/logo10.png"
+                alt="MAHI Logo"
+                width={140}
+                height={50}
+                className="object-contain h-12 w-auto"
+              />
 
-  <div className="ml-2 text-left">
-    <p className="text-sm sm:text-base font-medium whitespace-nowrap text-white">
-      Education & Charitable Trust
-    </p>
-  </div>
-</div>
+              <div className="ml-2 text-left">
+                <p className="text-sm sm:text-base font-medium whitespace-nowrap text-white">
+                  Mahi Education & Charitable Trust
+                </p>
+              </div>
+            </div>
 
             <p className="text-white/80 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
               Committed to empowering communities through education, skill
@@ -58,7 +57,7 @@ export default function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/#about", label: "About Us" },
                 { href: "/programs", label: "Programs" },
-                { href: "/#gallery", label: "Gallery" },
+                { href: "/#home-gallery", label: "Gallery" },
                 { href: "/#contact", label: "Contact" },
                 { href: "/#legal", label: "Legal & Compliance" },
               ].map((link) => (

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function RevealGridGallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -10,52 +11,56 @@ export default function RevealGridGallery() {
   const images = [
     {
       id: 1,
-      src: "/gallery1.jpg",
-      alt: "Community Education",
-      category: "Education",
+      src: "/gallery12.jpeg",
+      alt: "Hands-on electronics workshop",
+      category: "Skills",
     },
+
     {
       id: 2,
-      src: "/gallery2.jpg",
-      alt: "Skill Development",
-      category: "Skills",
+      src: "/gallery19.jpeg",
+      alt: "Save birds campaign",
+      category: "Environment",
     },
     {
       id: 3,
-      src: "/gallery3.jpg",
-      alt: "Healthcare Services",
-      category: "Healthcare",
+      src: "/gallery13.jpeg",
+      alt: "Community Tree Plantation Drive",
+      category: "Environment",
     },
     {
       id: 4,
-      src: "/gallery9.jpg",
+      src: "/gallery14.jpeg",
       alt: "Women Empowerment",
       category: "Empowerment",
     },
-    { id: 5, src: "/gallery5.jpg", alt: "Youth Programs", category: "Youth" },
+    { id: 5, src: "/gallery15.jpeg", alt: "Youth Programs", category: "Youth" },
     {
       id: 6,
-      src: "/gallery6.jpg",
+      src: "/gallery16.jpeg",
       alt: "Community Outreach",
       category: "Outreach",
     },
     {
       id: 7,
-      src: "/gallery7.jpg",
-      alt: "Education Initiative",
+      src: "/gallery24.jpeg",
+      alt: "Computer Training",
       category: "Education",
     },
+
     {
       id: 8,
-      src: "/gallery8.jpg",
-      alt: "Training Workshop",
-      category: "Skills",
+      src: "/gallery22.jpeg",
+      alt: "Skill development certification event",
+      category: "Award & Recognition",
     },
-    
   ];
 
   return (
-    <section id="gallery" className="relative py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
+    <section
+      id="home-gallery"
+      className="relative py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
+    >
       {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 right-10 w-72 h-72 bg-[#f4a261]/5 rounded-full blur-3xl" />
@@ -144,6 +149,22 @@ export default function RevealGridGallery() {
             />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-10 flex justify-center"
+        >
+          <Link
+            href="/gallery"
+            
+            className="px-6 py-3 bg-[#f4a261] text-white text-sm font-semibold tracking-wide uppercase hover:bg-[#e76f51] transition-colors duration-300"
+          >
+            View All
+          </Link>
+        </motion.div>
       </div>
 
       {/* Lightbox */}
@@ -153,6 +174,7 @@ export default function RevealGridGallery() {
           onClose={() => setSelectedImage(null)}
         />
       )}
+      {/* View All Button */}
     </section>
   );
 }

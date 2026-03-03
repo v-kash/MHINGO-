@@ -208,13 +208,42 @@ export default function ProgramTimeline() {
             </div>
 
             {/* Footer Count */}
-            <div className="mt-10 pt-5 border-t border-gray-200">
-              <p className="text-center text-sm text-gray-500">
+            {/* Footer Count + Download Button */}
+            <div className="mt-10 pt-5 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4">
+              {/* Program Count */}
+              <p className="text-sm text-gray-500 text-center md:text-left">
                 <span className="font-semibold text-[#0f4c5c] text-lg">
                   {yearlyPrograms[selectedYear].programs.length}
                 </span>{" "}
                 programmes implemented in {yearlyPrograms[selectedYear].year}
               </p>
+
+              {/* Download ZIP Button */}
+              <a
+                href="/pdfs/Programme-Reports-2020-2025.zip"
+                download
+                className="group flex items-center gap-2 px-5 py-2.5 rounded-full 
+               bg-gradient-to-r from-[#088395] to-[#0f4c5c] 
+               text-white text-sm font-semibold shadow-md 
+               hover:shadow-xl hover:scale-105 
+               transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 group-hover:animate-bounce"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v10m0 0l-4-4m4 4l4-4M4 17h16v4H4z"
+                  />
+                </svg>
+                Download All Reports (ZIP)
+              </a>
             </div>
           </div>
         </motion.div>
