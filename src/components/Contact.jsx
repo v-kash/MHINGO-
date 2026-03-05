@@ -24,10 +24,7 @@ export default function LegalCompliance() {
           name: "TRUST-REG-CERTIFICATE.pdf",
           path: "/docs/trust/TRUST-REG-CERTIFICATE.pdf",
         },
-        {
-          name: "TRUST-MOA.pdf",
-          path: "/docs/trust/TRUST-MOA.pdf",
-        },
+
         {
           name: "TRUST-MSME-REG.pdf",
           path: "/docs/trust/TRUST-MSME-REG.pdf",
@@ -115,6 +112,34 @@ export default function LegalCompliance() {
         {
           name: "TRUST-80G.pdf",
           path: "/docs/12a-80g/TRUST-80G.pdf",
+        },
+      ],
+    },
+
+    {
+      id: 7,
+      title: "Trust-MOA",
+      icon: CreditCard,
+      files: [
+        {
+          name: "TRUST-MOA.pdf",
+          path: "/docs/trust/TRUST-MOA.pdf",
+        },
+      ],
+    },
+
+    {
+      id: 8,
+      title: "Bank-Details",
+      icon: CreditCard,
+      files: [
+        {
+          name: "QR-CODE.pdf",
+          path: "/docs/bank/TrustQR.pdf",
+        },
+        {
+          name: "BANK-DETAILS.pdf",
+          path: "/docs/bank/BANK.pdf",
         },
       ],
     },
