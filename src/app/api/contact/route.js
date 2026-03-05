@@ -3,7 +3,7 @@
 // Install:  npm install nodemailer
 //
 // Add these to your .env.local:
-//   EMAIL_USER=mahiedutrust2020@gmail.com
+//   EMAIL_USER=vivanparmar09@gmail.com
 //   EMAIL_PASS=your_gmail_app_password        ← NOT your Gmail login password!
 //
 // How to get an App Password (Gmail):
@@ -14,7 +14,7 @@
 
 import nodemailer from "nodemailer";
 
-const TRUST_EMAIL = "mahiedutrust2020@gmail.com";
+const TRUST_EMAIL = "vivanparmar09@gmail.com";
 
 export async function POST(req) {
   try {

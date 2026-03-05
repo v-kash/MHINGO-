@@ -122,11 +122,11 @@ function buildSenderEmail({ name }) {
         <span class="pill">❤️ Health</span>
         <span class="pill">🤝 Social Welfare</span>
       </div>
-      <p style="font-size:13px; color:#aaa;">If your matter is urgent, please write directly to<br/><a href="mailto:mahiedutrust2020@gmail.com" style="color:#0f4c5c;">mahiedutrust2020@gmail.com</a></p>
+      <p style="font-size:13px; color:#aaa;">If your matter is urgent, please write directly to<br/><a href="mailto:vivanparmar09@gmail.com" style="color:#0f4c5c;">vivanparmar09@gmail.com</a></p>
     </div>
     <div class="footer">
       <p>MAHI Education &amp; Charitable Trust</p>
-      <p><a href="mailto:mahiedutrust2020@gmail.com">mahiedutrust2020@gmail.com</a></p>
+      <p><a href="mailto:vivanparmar09@gmail.com">vivanparmar09@gmail.com</a></p>
     </div>
   </div>
 </body>
@@ -207,7 +207,7 @@ export default function ContactForm() {
       //   "YOUR_SERVICE_ID",
       //   "YOUR_TEMPLATE_ID",
       //   {
-      //     to_email: "mahiedutrust2020@gmail.com",
+      //     to_email: "vivanparmar09@gmail.com",
       //     from_name: form.name,
       //     from_email: form.email,
       //     phone: form.phone,
@@ -316,7 +316,7 @@ export default function ContactForm() {
                 <InfoCard
                   icon={Mail}
                   label="Email"
-                  value="mahiedutrust2020@gmail.com"
+                  value="vivanparmar09@gmail.com"
                   color="#6aa84f"
                 />
                 <InfoCard

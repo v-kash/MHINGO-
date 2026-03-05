@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [donateOpen, setDonateOpen] = useState(false);
+
+  const scrollPosition = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
@@ -18,6 +22,45 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // useEffect(() => {
+  //   if (donateOpen) {
+  //     const scrollY = window.scrollY;
+
+  //     document.body.style.position = "fixed";
+  //     document.body.style.top = `-${scrollY}px`;
+  //     document.body.style.left = "0";
+  //     document.body.style.right = "0";
+  //   } else {
+  //     const scrollY = document.body.style.top;
+
+  //     document.body.style.position = "";
+  //     document.body.style.top = "";
+  //     document.body.style.left = "";
+  //     document.body.style.right = "";
+
+  //     if (scrollY) {
+  //       window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  //     }
+  //   }
+  // }, [donateOpen]);
+
+
+  useEffect(() => {
+  if (donateOpen) {
+    scrollPosition.current = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition.current}px`;
+    document.body.style.width = "100%";
+  } else {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, scrollPosition.current);
+  }
+}, [donateOpen]);
 
   return (
     <nav
@@ -209,8 +252,23 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end items-center gap-4">
+            <button
+              onClick={() => setDonateOpen(true)}
+              className="
+    hidden md:inline-block
+    px-5 py-2
+    rounded-full
+    bg-[#412B6B]
+    text-white
+    text-sm
+    font-semibold
+    hover:bg-[#5a3d91]
+    transition
+  "
+            >
+              Donate
+            </button>
             <button
               className={`md:hidden p-2 transition-colors ${
                 scrolled ? "text-[#6B5FB5]" : "text-white"
@@ -298,7 +356,7 @@ export default function Navbar() {
         className={`
     md:hidden overflow-hidden
     transition-all duration-300 ease-out
-    ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+    ${mobileMenuOpen ? "max-h-110 opacity-100" : "max-h-0 opacity-0"}
   `}
       >
         <div className="bg-white/95 backdrop-blur-xl border-t border-black/10">
@@ -339,6 +397,13 @@ export default function Navbar() {
             >
               Contact
             </Link>
+
+            <button
+              onClick={() => setDonateOpen(true)}
+              className="mt-4 bg-[#412B6B] text-white font-semibold py-3 px-4 rounded-lg text-center"
+            >
+              Donate
+            </button>
           </div>
         </div>
       </div>
@@ -352,7 +417,43 @@ export default function Navbar() {
           origin-left
         `}
       />
+      {donateOpen && <DonateLightbox onClose={() => setDonateOpen(false)} />}
     </nav>
+  );
+}
+
+function DonateLightbox({ onClose }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm p-6"
+      onClick={onClose}
+    >
+      {/* Close Button */}
+      <button
+        className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-white/10 rounded-full text-white hover:bg-[#412B6B]"
+        onClick={onClose}
+      >
+        ✕
+      </button>
+
+      {/* Image */}
+      <motion.div
+        initial={{ scale: 0.85, y: 40 }}
+        animate={{ scale: 1, y: 0 }}
+        transition={{ type: "spring", damping: 20 }}
+        className="relative w-full max-w-xl h-[70vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src="/donate.png"
+          alt="Donate QR Code"
+          fill
+          className="object-contain"
+        />
+      </motion.div>
+    </motion.div>
   );
 }
 function Underline() {
