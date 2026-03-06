@@ -69,11 +69,11 @@ export default function Hero() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   // Track scroll progress of the hero section
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   // Parallax transforms
@@ -89,9 +89,9 @@ export default function Hero() {
         {/* Animated Image with Parallax */}
         <motion.div
           className="absolute inset-0"
-          style={{ 
+          style={{
             y: imageY,
-            scale: scale
+            scale: scale,
           }}
           initial={{ opacity: 0 }}
           animate={mounted ? { opacity: 1 } : { opacity: 0 }}
@@ -112,13 +112,13 @@ export default function Hero() {
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAjEAACAQQBAwUAAAAAAAAAAAABAgMABAUREiExQQYTIjJR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwIE/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECEQMhMUFR/9oADAMBAAIRAxEAPwDmy3EWRlS4uLtHlhUsI2X8T+VRc1lryzuo4bS5MEQXcm/ucfg/lWo9SWEeRwzS+mY2lvIiCY1+LJ7jkcfBrnwReHmYV9z7uJmDW84On6j5pSqm6GotpWYrCWd1fXaW1rE0kjerAf1W/wDTWCi9N4sWUUrSF2kkkPys3VqRRU44/wDQRj/I//Z"
             onLoad={() => setImageLoaded(true)}
           />
-          
+
           {/* Grayscale overlay that fades out */}
           <motion.div
             className="absolute inset-0 z-10"
             style={{
-              mixBlendMode: 'saturation',
-              backgroundColor: 'white',
+              mixBlendMode: "saturation",
+              backgroundColor: "white",
             }}
             initial={{ opacity: 1 }}
             animate={imageLoaded ? { opacity: 0 } : { opacity: 1 }}
@@ -146,7 +146,7 @@ export default function Hero() {
       </div>
 
       {/* Main Hero Content - Left Aligned with Parallax */}
-      <motion.div 
+      <motion.div
         className="relative z-20 container mx-auto px-6 md:px-16 pt-24 md:pt-0 md:h-[calc(100vh-80px)] flex items-center"
         style={{ y: contentY, opacity }}
       >
@@ -201,7 +201,11 @@ export default function Hero() {
           <motion.div
             className="flex gap-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={mounted && imageLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={
+              mounted && imageLoaded
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 20 }
+            }
             transition={{ delay: 2.2, duration: 0.6 }}
           >
             {/* buttons stay same */}
@@ -245,7 +249,9 @@ export default function Hero() {
               <div className="flex items-start gap-3 md:gap-5 h-full px-4 md:px-8 py-5 md:py-7 relative z-10">
                 <HeartPulse size={36} className="md:w-12 md:h-12" />
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">Health</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">
+                    Health
+                  </h3>
                   <p className="text-white/80 text-sm md:text-md max-w-[220px]">
                     Improving access to healthcare and overall well-being.
                   </p>
@@ -263,7 +269,9 @@ export default function Hero() {
               <div className="flex items-start gap-3 md:gap-5 h-full px-4 md:px-8 py-5 md:py-7 relative z-10">
                 <HandHeart size={36} className="md:w-12 md:h-12" />
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">Social Welfare</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">
+                    Social Welfare
+                  </h3>
                   <p className="text-white/80 text-sm md:text-md max-w-[220px]">
                     Supporting dignity, inclusion, and social security.
                   </p>
